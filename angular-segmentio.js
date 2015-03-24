@@ -30,14 +30,6 @@ angular.module('segmentio', ['ng'])
                 service[methods[i]] = methodFactory(methods[i]);
             }
 
-            // Listening to $viewContentLoaded event to track pageview
-            $rootScope.$on('$viewContentLoaded', function() {
-                if (service.location != $location.path()) {
-                    service.location = $location.path();
-                    service.pageview(service.location);
-                }
-            });
-
             /**
              * @description
              * Load Segment.io analytics script
